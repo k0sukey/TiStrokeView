@@ -30,7 +30,7 @@ var strokeView = TiStroke.createView({
 	}
 });
 win.add(strokeView);
-
+/*
 var counter = 0,
 	reverse = 1;
 setInterval(function(){
@@ -38,13 +38,33 @@ setInterval(function(){
 		counter = 0;
 		reverse = reverse === 1 ? -1 : 1;
 	}
-	
+
 	var to = strokeView.getLineTo();
-	
+
 	strokeView.setLineTo({
 		x: to.x + 10 * reverse,
 		y: to.y + 10 * reverse
 	});
-	
+
 	counter++;
+}, 100);
+*/
+
+strokeView.setLineFrom({
+	x: 160,
+	y: 240
+});
+
+var degree = 0;
+setInterval(function(){
+	if (degree >= 360) {
+		degree = 0;
+	}
+
+	strokeView.setLineTo({
+		x: 160 + 100 * Math.cos(Math.PI / 180 * degree),
+		y: 240 - 100 * Math.sin(Math.PI / 180 * degree)
+	});
+
+	degree += 10;
 }, 100);

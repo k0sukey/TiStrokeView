@@ -47,6 +47,27 @@ Yes, expansion and contraction.
 		counter++;
 	}, 100);
 
+Rotation? Yes!
+
+	strokeView.setLineFrom({
+		x: 160,
+		y: 240
+	});
+	
+	var degree = 0;
+	setInterval(function(){
+		if (degree >= 360) {
+			degree = 0;
+		}
+		
+		strokeView.setLineTo({
+			x: 160 + 100 * Math.cos(Math.PI / 180 * degree),
+			y: 240 - 100 * Math.sin(Math.PI / 180 * degree)
+		});
+		
+		degree += 10;
+	}, 100);
+
 ### License
 
 The MIT License (MIT) Copyright (c) 2014 Kosuke Isobe, Socketbase Inc.
